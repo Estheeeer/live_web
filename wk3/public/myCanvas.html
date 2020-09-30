@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+  	<link href="style/style.css" rel="stylesheet" >
+	<title>myCanvas</title>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+
+		var socket = io.connect();
+
+		socket.on('connect', function() {
+			console.log("connected");
+		});
+
+		window.addEventListener('load', function() {
+
+			let canvas = document.getElementById('theCanvas');
+			let context = canvas.getContext('2d');
+
+			// set canvas size fit to the window size
+			canvas.setAttribute('width', window.innerWidth);
+			canvas.setAttribute('height', window.innerHeight);
+
+			canvas.addEventListener('mousemove', mouseMove);
+				
+			socket.on('drawing', mouseMove);			
+
+			function getRndInteger(min, max) {
+				return Math.floor(Math.random() * (max - min)) + min;
+			}
+
+			// function mousePressed(){
+			// 	strokePattern++
+			// 	if (strokePattern > 3) {
+			// 		strokePattern = 1
+			// 	}
+			// }
+
+			function mouseMove(evt) {
+				console.log(evt);
+
+				let datatosend = {
+					x: evt.x,
+					y: evt.y
+				};
+				
+				socket.emit('drawing',datatosend);
+
+				var circleNumber = Math.floor((Math.random() * 20) + 1);
+				var circleRadius = Math.floor((Math.random() * 20) + 1);
+			    var strokePattern = getRndInteger(1, 3);
+			    var randDistance = getRndInteger(2, 10);
+
+				if (strokePattern == 1) {
+					for (i = 0; i < circleNumber; i++) {
+						// select color randomly
+						context.fillStyle = "#"+((1<<24)*Math.random()|0).toString(16);
+						// draw circle with randow size
+						context.arc(evt.x+randDistance, evt.y+randDistance, circleRadius, 0, 2 * Math.PI, false);
+						context.fill();
+						context.closePath();
+						circleRadius *= 0.9
+						console.log("1: ", context.fillStyle);
+					}
+
+				} else if (strokePattern == 2) {
+					for (j = 0; j < circleNumber; j++) {
+						// select color randomly
+						context.fillStyle = "#"+((1<<24)*Math.random()|0).toString(16);
+						// draw circle with randow size
+						context.arc(evt.x+randDistance, evt.y+randDistance, circleRadius*1.4, 0, 2 * Math.PI, false);
+						context.fill();
+						context.closePath();
+						circleRadius *= 0.9
+						console.log("2: ", context.fillStyle);
+					}
+
+				} else {
+					for (k = 0; k < circleNumber; k++) {
+						// select color randomly
+						context.fillStyle = "#"+((1<<24)*Math.random()|0).toString(16);
+						// draw circle with randow size
+						context.arc(evt.x+randDistance, evt.y+randDistance, circleRadius*2.0, 0, 2 * Math.PI, false);
+						context.fill();
+						context.closePath();
+						circleRadius *= 0.9
+						console.log("3: ", context.fillStyle);
+					}
+
+				}
+
+			}
+
+		});
+
+	</script>
+</head>
+
+
+
+<body>
+	<canvas id="theCanvas">here is my canvas</canvas>
+</body>
+</html>
