@@ -40,38 +40,10 @@ io.sockets.on('connection',
 	// We are given a websocket object in our function
 	function (socket) {
 	
-	
-		socket.nickname = "";
-
 		console.log("We have a new client: " + socket.id);
 		
 		socket.on('drawing', function(data) {
 			io.emit('drawing', data);
-		});
-
-		// When this user emits, client side: socket.emit('otherevent',some data);
-		socket.on('chatmessage', function(data) {
-			// Data comes in as whatever was sent, including objects
-			console.log("Received: 'chatmessage' " + data + " from: "  + socket.nickname);
-
-			var datatosend = {
-				m: data,
-				n: socket.nickname
-			}
-
-			// Send it to all of the clients
-			// socket.broadcast.emit('chatmessage', data);
-      		io.emit('chatmessage', datatosend);
-
-		});
-		
-		socket.on('nick', function(nickdata) {
-
-			// Associate nickname with a user
-			socket.nickname = nickdata;
-			
-			console.log(socket.id + " " + socket.nickname);			
-			//io.emit('nick', data);
 		});
 
 		socket.on('disconnect', function() {
