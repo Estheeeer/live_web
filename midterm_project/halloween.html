@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<link href="styles.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		function textFollowing() {
+		  const text = 'Hello, world! I am moving!';
+		  const $body = document.querySelector('body')
+		  text.split('').forEach((char, index) => {
+		    const $span = document.createElement('span')
+		    $span.setAttribute('class', 's')
+		    $span.setAttribute('id', 's-' + index)
+		    $span.textContent = char
+		    $body.appendChild($span)
+		  })
+		  const $spans = document.querySelectorAll('.s')
+		  window.addEventListener('mousemove', (e) => {
+		    const x = parseFloat(e.clientX)
+		    const y = parseFloat(e.clientY)
+		    $spans.forEach(($span) => {
+		      const cls = $span.getAttribute('id') || ''
+		      const reg = /s-(\d+)/.exec(cls)
+		      if (reg) {
+		        const num = parseFloat(reg[1])
+		        setTimeout(() => {
+		          $span.style.display = "block";
+		          $span.style.top = y + "px";
+		          $span.style.left = x + (num + 1) * 20 + "px"
+		        }, (num + 1) * 50)
+		      }
+		    })
+		  })
+		}
+
+	</script>
+
+
+
+	<div class="input" align="center">			
+		<input type="button" value="S" id="button">
+		<input type="text" value=" text input" id="text">
+	</div>
+        <video id="myvideo" width="400" height="300"></video>
+
+</body>
+</html>
