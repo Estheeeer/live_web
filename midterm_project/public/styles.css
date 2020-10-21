@@ -1,0 +1,110 @@
+body {
+	background-image: url("./imgs/bg_image.jpg");
+	background-position: center bottom;
+	background-color: black;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow: hidden;
+}
+
+.s {
+	position: absolute;
+	color: #D75912;
+	display: none;
+	font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+	color: white;
+}
+
+input {
+	background-position: top;
+    background-attachment: fixed;
+}
+
+#button {
+	background: url("./imgs/button.png");
+	background-size: 100%;
+	outline: none; /*no border*/
+	border: none; /*no border*/
+	/*background-color: 1F150F;*/
+    width: 55px;
+    height:40px;
+    opacity: 0.8;
+}
+
+#button:hover {
+    width: 55px;
+    height:40px;
+    opacity: 1.0;
+}
+
+#button:click {
+	border: none;
+	opacity: 1.0; 
+}
+
+#text {
+    width: 50%;
+    height: 50px;
+	background-color: #ac7134;    
+    -webkit-border-radius: 10;
+  	-moz-border-radius: 10;
+  	border-radius: 10px;
+  	opacity: 0.5;
+/*	background-image: -webkit-linear-gradient(top, #ac7134, #d27531);
+	background-image: -moz-linear-gradient(top, #ac7134, #d27531);
+	background-image: -ms-linear-gradient(top, #ac7134, #d27531);
+	background-image: -o-linear-gradient(top, #ac7134, #d27531);
+	background-image: linear-gradient(to bottom, #ac7134, #d27531);*/
+}
+
+#mycanvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+
+#myvideo {
+	display: none;
+}
+
+#surpriseimage {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: none;
+	transform: translate(-50%, -50%);
+	display: none;
+}
+
+#crackimage {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: none;
+	transform: translate(-50%, -50%);	
+}
+
+#hiddenbutton {
+	position: absolute;
+	background-color: #d27531;
+	background-size: 100%;
+	outline: none; /*no border*/
+	border: none; /*no border*/
+    width: 55px;
+    height:40px;
+    opacity: 0.8;
+}
+
+#hiddenbutton:hover {
+    width: 55px;
+    height:40px;
+    opacity: 1.0;
+}
+
+
+
