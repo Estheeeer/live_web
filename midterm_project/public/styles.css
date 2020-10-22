@@ -21,7 +21,7 @@ h1 {
 
 input {
 	background-position: top;
-    background-attachment: fixed;
+    	background-attachment: fixed;
 }
 
 #button {
@@ -30,15 +30,15 @@ input {
 	outline: none; /*no border*/
 	border: none; /*no border*/
 	/*background-color: 1F150F;*/
-    width: 55px;
-    height:40px;
-    opacity: 0.8;
+    	width: 55px;
+    	height:40px;
+    	opacity: 0.8;
 }
 
 #button:hover {
-    width: 55px;
-    height:40px;
-    opacity: 1.0;
+    	width: 55px;
+    	height:40px;
+    	opacity: 1.0;
 }
 
 #button:click {
@@ -47,10 +47,10 @@ input {
 }
 
 #text {
-    width: 50%;
-    height: 50px;
+    	width: 50%;
+   	height: 50px;
 	background-color: #ac7134;    
-    -webkit-border-radius: 10;
+    	-webkit-border-radius: 10;
   	-moz-border-radius: 10;
   	border-radius: 10px;
   	opacity: 0.5;
@@ -62,9 +62,9 @@ input {
 }
 
 #mycanvas {
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  	position: fixed;
+  	top: 50%;
+  	left: 50%;
 }
 
 
@@ -96,5 +96,5 @@ input {
 	border: none; /*no border*/
     	width: 55px;
     	height:40px;
-    	opacity: 0; // transparent
+    	opacity: 0; /*transparent*/
 }
