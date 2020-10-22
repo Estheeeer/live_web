@@ -91,20 +91,14 @@ input {
 
 #hiddenbutton {
 	position: absolute;
-	background-color: #d27531;
 	background-size: 100%;
 	outline: none; /*no border*/
 	border: none; /*no border*/
-    width: 55px;
-    height:40px;
-    opacity: 0.8;
+    	width: 55px;
+    	height:40px;
+    	opacity: 0; // transparent
 }
 
-#hiddenbutton:hover {
-    width: 55px;
-    height:40px;
-    opacity: 1.0;
-}
 
 
 
